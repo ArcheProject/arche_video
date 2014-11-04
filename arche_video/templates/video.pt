@@ -16,11 +16,8 @@
       preload="auto"
       style="width:100%; height:100%;"
       width="100%" height="100%">
-      <source src="${request.resource_url(context, 'view')}" type="${context.mimetype}" />
+      <source src="${request.resource_url(context, 'inline')}" type="${context.mimetype}" />
   </video>
-<!-- 
-      poster="${request.thumb_url(context, 'movie-player')}"
- -->
 </div>
 </body>
 </html>
