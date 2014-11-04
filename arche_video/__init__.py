@@ -1,4 +1,4 @@
 
 
 def includeme(config):
-    pass
+    config.include('.views')
