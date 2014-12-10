@@ -9,7 +9,9 @@
   <h1>${context.title}</h1>
   <script type="text/javascript">
     $(document).ready(function(event) {
-        $('video,audio').mediaelementplayer({defaultVideoWidth: 480});
+    	if (typeof $('video,audio').mediaelementplayer === "function") { 
+        	$('video,audio').mediaelementplayer({defaultVideoWidth: 480});
+        }
     });
   </script>
   <video controls
