@@ -9,6 +9,7 @@ from pyramid.httpexceptions import HTTPFound
 from arche_video.fanstatic_lib import (mediaelementplayer_css,
                                        mediaelement_and_player,
                                        mejs_skins)
+from arche_video.events import NewVideo
 
 
 class MediaPlayerView(BaseView):
@@ -35,6 +36,8 @@ class AddVideoFolderForm(DefaultAddForm):
         #Add initial video file
         file_name = generate_slug(obj, file_obj.filename)
         obj[file_name] = file_obj
+        event = NewVideo(file_obj)
+        self.request.registry.notify(event)
         return HTTPFound(location = self.request.resource_url(obj))
 
 
